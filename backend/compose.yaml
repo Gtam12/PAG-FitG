@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: fitg
+      POSTGRES_USER: fitg
+      POSTGRES_PASSWORD: fitg
+    ports:
+      - "5433:5432"   # 5433 on the host: avoids clashing with a local Postgres.app on 5432
+    volumes:
+      - fitg-pgdata:/var/lib/postgresql/data
+
+volumes:
+  fitg-pgdata:
