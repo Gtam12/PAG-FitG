@@ -24,6 +24,10 @@ spring:
     compose:
       lifecycle-management: start-only   # boots ./compose.yaml on app start, leaves it running
 
+  mvc:
+    problemdetails:
+      enabled: true
+
 server:
   port: 8082
 
@@ -36,7 +40,7 @@ management:
 fitg:
   jwt:
     # 256-bit+ secret, base64. Generate: openssl rand -base64 32
-    secret: ${JWT_SECRET:change-me-change-me-change-me-change-me-00=}
+    secret: ${JWT_SECRET:6IJ8v1D9ibkP0Xix45ddEbg3v6sih7a8nkCpQgVBmQY=}
     ttl: 7d
   public-base-url: ${PUBLIC_BASE_URL:http://localhost:8080}   # ngrok/cloudflared URL when testing Strava webhooks
   mobile-redirect-scheme: fitg                                 # deep link back into the app
@@ -45,3 +49,5 @@ fitg:
     client-secret: ${STRAVA_CLIENT_SECRET:}
     webhook-verify-token: ${STRAVA_WEBHOOK_VERIFY_TOKEN:}
     scopes: read,activity:read_all
+
+
